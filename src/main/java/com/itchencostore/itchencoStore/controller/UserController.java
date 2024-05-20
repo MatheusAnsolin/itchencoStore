@@ -1,6 +1,6 @@
 package com.itchencostore.itchencoStore.controller;
 
-import com.itchencostore.itchencoStore.model.User;
+import com.itchencostore.itchencoStore.model.UserModel;
 import com.itchencostore.itchencoStore.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping
-    public List<User> listarUsuarios() {
+    public List<UserModel> listarUsuarios() {
         return userRepository.findAll();
     }
 }
