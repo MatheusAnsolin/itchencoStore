@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Comércio Eletrônico de Roupas Esportivas</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Comércio Eletrônico de Roupas Esportivas</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Início</a></li>
+            <li><a href="/cart">Carrinho</a></li>
+            <li><a href="/profile">Perfil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section th:each="category : ${categories}">
+        <h2 th:text="${category.name}">Nome da Categoria</h2>
+        <div class="product-list">
+            <div class="product-card" th:each="product : ${category.products}">
+                <img th:src="@{${product.image}}" alt="Imagem do Produto">
+                <h3 th:text="${product.name}">Nome do Produto</h3>
+                <button th:onclick="'addToCart(' + ${product.id} + ')'">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Comércio Eletrônico de Roupas Esportivas</p>
+</footer>
+
+<script src="/js/scripts.js"></script>
+</body>
+</html>
